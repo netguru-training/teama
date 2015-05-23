@@ -6,11 +6,13 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 %w(Descent Dixit SmallWorld Discworld).each do |b|
-  BoardGame.create(name: b)
+  BoardGame.create(name: b, description: Faker::Lorem.sentence)
 end
 
 4.times do
   u = User.create(email: Faker::Internet::email, password: 'password')
   u.reviews.build(content: 'Super', board_game: BoardGame.all.sample)
+  u.comments.build(content: Faker::Lorem.sentence, review: Review.all.sample)
   u.save
 end
+

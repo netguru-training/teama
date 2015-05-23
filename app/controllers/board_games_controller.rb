@@ -3,6 +3,7 @@ class BoardGamesController < ApplicationController
   expose(:board_games)
   expose(:reviews, ancestor: :board_game)
   expose(:review) { Review.new }
+  expose(:comment) { Comment.new }
   expose(:user, ancestor: :board_game)
 
   def add_to_collection

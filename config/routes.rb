@@ -7,8 +7,12 @@ Rails.application.routes.draw do
   get '/users/profile', to: 'users#profile', as: :profile
 
   resources :board_games, only: [:index, :edit, :update, :show] do
-    resources :collections, only: [:destroy, :create]
-    resources :reviews, only: [:create]
+    resources :collections, only: [:destroy, :create, :update]
+    resources :reviews, only: :create
+  end
+
+  resources :reviews do
+    resources :comments, only: :create
   end
 
   root to: 'pages#home'
