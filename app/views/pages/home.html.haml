@@ -2,20 +2,19 @@
 .container
   %h1 BoardGames
   .row
-    %table.table.table-responsive.table-hover
-      %tr
-        %th Name
-        %th Description
-        - if user_signed_in?
-          %th Add Game
+    .col-md-5.col-md-offset-1
+      %ul
+        - @board_games.each do |g|
+          %li{'style' => 'list-style-type: none;'}
+            %h4
+              = g.name
+    -#.col-md-5
 
-
-      - @board_games.each do |game|
-        %tr
-          %td
-            = game.name
-          %td
-            = game.description
-          - if user_signed_in?
-            -#%td= button_to 'Add', add_to_collection_board_game_path(game), method: :post
-            %td= button_to 'Add', board_game_collections_path(game), method: :post
+  .row
+    .col
+      .col-md-5.col-md-offset-1
+        %ul
+          - User.all.order(created_at: :desc).limit(5) do |u|
+            %li{'style' => 'list-style-type: none;'}
+              %h4
+                = u.email
