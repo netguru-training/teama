@@ -14,6 +14,7 @@ gem 'draper'
 gem "erb2haml"
 
 gem 'high_voltage', '~> 2.3.0'
+gem 'faker'
 
 group :development, :test do
   gem 'pry-byebug'
