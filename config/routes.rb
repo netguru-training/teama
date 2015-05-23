@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   resources :board_games, only: [:index, :edit, :update, :show] do
     resources :collections, only: [:destroy, :create, :update]
+    resources :reviews, only: [:create]
   end
 
   root to: 'pages#home'
