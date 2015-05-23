@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get '/users/profile', to: 'users#profile', as: :profile
   resources :board_games, only: [:index, :edit, :update, :show] do
     post 'add_to_collection', on: :member
+    resources :reviews, only: [:create]
   end
   root to: 'pages#home'
 
