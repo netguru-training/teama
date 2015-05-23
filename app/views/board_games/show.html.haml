@@ -1,1 +1,5 @@
-%h1= board_game.name
+.page-header
+  %h1= board_game.name
+%ul
+  - reviews.each do |r|
+    %li= r.content
