@@ -1,20 +1,44 @@
-
 .container
   %h1 BoardGames
   .row
     .col-md-5.col-md-offset-1
       %ul
         - @board_games.each do |g|
-          %li{'style' => 'list-style-type: none;'}
+          %li
             %h4
               = g.name
-    -#.col-md-5
+    .col-md-5
+      %h4
+        Amounts:
+        %ul
+          %li
+            BoardGames:
+            \&nbsp;
+            = @board_games.count
+          %li
+            Users:
+            \&nbsp;
+            = User.all.count
+          %li
+            Reviews:
+            \&nbsp;
+            = Review.all.count
+
+  %br
+  %br
 
   .row
-    .col
-      .col-md-5.col-md-offset-1
-        %ul
-          - User.all.order(created_at: :desc).limit(5) do |u|
-            %li{'style' => 'list-style-type: none;'}
-              %h4
-                = u.email
+    .col-md-5.col-md-offset-1
+      %ul
+        - @users.order(created_at: :desc).limit(5).each do |u|
+          %li
+            %h4
+              = u.email
+
+    .col-md-5.col-md-offset-1
+      %ul
+        - Review.order(created_at: :desc).limit(5).each do |r|
+          %li
+            %h4
+              = r.content
+
