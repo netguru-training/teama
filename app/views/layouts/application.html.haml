@@ -33,6 +33,25 @@
               %a{:href => "#about"} About
             %li
               %a{:href => "#contact"} Contact
+          %ul.nav.navbar-nav.navbar-right
+            - if user_signed_in?
+              %li
+                = link_to destroy_user_session_path, method: :delete do
+                  %span.glyphicon.glyphicon-log-out
+                    Sign Out
+                = link_to edit_user_registration_path do
+                  %span.glyphicon.glyphicon-edit
+                    Edit User
+            - else
+              %li
+                = link_to new_user_registration_path do
+                  %span.glyphicon.glyphicon-user
+                    Sign Up
+                = link_to new_user_session_path do
+                  %span.glyphicon.glyphicon-log-in
+                    Login
+
+
     .container
       - flash.each do |name, msg|
         = content_tag :div, :class => "alert alert-#{name == :error ? "danger" : "success" } alert-dismissable", :role => "alert" do
@@ -41,3 +60,8 @@
             %span.sr-only Close
           = msg
       = yield
+
+  %p.notice
+    = notice
+  %p.alert
+    = alert
