@@ -11,6 +11,6 @@ end
 
 4.times do
   u = User.create(email: Faker::Internet::email, password: 'password')
-  u.reviews.build(contnent: 'Super', board_game: BoardGame.all.sample)
+  u.reviews.build(content: 'Super', board_game: BoardGame.all.sample)
   u.save
 end
