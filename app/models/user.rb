@@ -5,4 +5,5 @@ class User < ActiveRecord::Base
   has_many :collections
   has_many :reviews
   has_many :board_games, through: :collections
+  has_many :comments
 end

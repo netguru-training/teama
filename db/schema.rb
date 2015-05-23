@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150523092610) do
+ActiveRecord::Schema.define(version: 20150523103420) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -62,6 +62,17 @@ ActiveRecord::Schema.define(version: 20150523092610) do
 
   add_index "collections", ["board_game_id"], name: "index_collections_on_board_game_id"
   add_index "collections", ["user_id"], name: "index_collections_on_user_id"
+
+  create_table "comments", force: :cascade do |t|
+    t.string   "content"
+    t.integer  "user_id"
+    t.integer  "review_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "comments", ["review_id"], name: "index_comments_on_review_id"
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id"
 
   create_table "reviews", force: :cascade do |t|
     t.string   "content"
