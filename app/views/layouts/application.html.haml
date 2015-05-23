@@ -28,11 +28,12 @@
         #navbar.collapse.navbar-collapse
           %ul.nav.navbar-nav
             %li.active
-              %a{:href => "#"} Home
+              = link_to 'Home', root_path
             %li
               %a{:href => "#about"} About
             %li
               %a{:href => "#contact"} Contact
+            %li= link_to 'All games', board_games_path
           %ul.nav.navbar-nav.navbar-right
             - if user_signed_in?
               %li= link_to "Hello, " + current_user.email, profile_path

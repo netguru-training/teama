@@ -9,6 +9,6 @@ class BoardGamesController < ApplicationController
   private
 
   def board_game_params
-    params.require(:board_game).permit(:user_id, :board_game_id)
+    params.require(:board_game).permit(:name, :description, :user_id, :board_game_id)
   end
 end
