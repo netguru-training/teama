@@ -6,4 +6,5 @@
     %ul
       - r.comments.each do |c|
         %li= c.content
+    = render 'comments/form', review: r
   = render 'reviews/form'

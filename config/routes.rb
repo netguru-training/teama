@@ -8,7 +8,13 @@ Rails.application.routes.draw do
   resources :collections, only: [:destroy]
   resources :board_games, only: [:index, :edit, :update, :show] do
     post 'add_to_collection', on: :member
-    resources :reviews, only: [:create]
+    resources :reviews, only: [:create] do
+      resources :comments, only: :create
+    end
+  end
+
+  resources :reviews do
+    resources :comments, only: :create
   end
   root to: 'pages#home'
 
