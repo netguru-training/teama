@@ -3,4 +3,7 @@
 %ul
   - reviews.each do |r|
     %li= r.content
+    %ul
+      - r.comments.each do |c|
+        %li= c.content
   = render 'reviews/form'
