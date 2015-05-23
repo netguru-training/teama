@@ -15,6 +15,7 @@ gem "erb2haml"
 
 gem 'high_voltage', '~> 2.3.0'
 gem 'faker'
+gem 'decent_exposure'
 
 group :development, :test do
   gem 'pry-byebug'
