@@ -16,9 +16,10 @@ gem "erb2haml"
 gem 'high_voltage', '~> 2.3.0'
 gem 'faker'
 gem 'decent_exposure'
+gem 'better_errors'
+gem "binding_of_caller"
 
 group :development, :test do
   gem 'pry-byebug'
-  gem 'web-console', '~> 2.0'
   gem 'spring'
 end

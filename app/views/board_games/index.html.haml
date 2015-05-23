@@ -8,7 +8,7 @@
           %th Add Game
 
 
-      - BoardGame.all.each do |game|
+      - board_games.each do |game|
         %tr
           %td
             = game.name
@@ -16,8 +16,3 @@
             = game.description
           - if user_signed_in?
             %td= button_to 'Add', add_to_collection_board_game_path(game), method: :post
-            - if board_game.user == current_user
-              = link_to 'Edit', edit_board_game_path(game)
-
-
-

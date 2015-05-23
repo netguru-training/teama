@@ -1,6 +1,8 @@
 class BoardGamesController < ApplicationController
   expose(:board_game, attributes: :board_game_params)
+  expose(:board_games)
   expose(:reviews, ancestor: :board_game)
+  expose(:user, ancestor: :board_game)
 
   def add_to_collection
     current_user.collections.create(board_game: board_game)
