@@ -1,0 +1,16 @@
+.container
+  .row
+    %table.table.table-responsive.table-hover
+      %th Name
+      %th Description
+      - if user_signed_in?
+        %th Add Game
+
+      - BoardGame.each do |game|
+        %td
+          = game.name
+        %td
+          = game.description
+        - if user_signed_in?
+          %td
+            = button_to
