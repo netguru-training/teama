@@ -7,6 +7,9 @@
       %ul
         - current_user.collections.each do |c|
           %li= c.board_game.name
+          \&nbsp;
+          = link_to 'Delete', collection_path(c), method: :delete
+
     .col-sm-12.col-md-6
       .h3 Last reviews
       %ul
