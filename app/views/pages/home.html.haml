@@ -1,4 +1,21 @@
-%h1 BoardGames
-%ul
-  - @board_games.each do |b|
-    %li= b.name
+
+.container
+  %h1 BoardGames
+  .row
+    %table.table.table-responsive.table-hover
+      %tr
+        %th Name
+        %th Description
+        - if user_signed_in?
+          %th Add Game
+
+
+      - @board_games.each do |game|
+        %tr
+          %td
+            = game.name
+          %td
+            = game.description
+          - if user_signed_in?
+            -#%td= button_to 'Add', add_to_collection_board_game_path(game), method: :post
+            %td= button_to 'Add', board_game_collections_path(game), method: :post
