@@ -10,6 +10,7 @@ gem 'bootstrap-generators', '~> 3.3.1'
 gem 'haml-rails'
 
 gem 'high_voltage', '~> 2.3.0'
+gem 'faker'
 
 group :development, :test do
   gem 'pry-byebug'
