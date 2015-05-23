@@ -11,7 +11,7 @@
       - board_games.each do |game|
         %tr
           %td
-            = game.name
+            =link_to game.name, board_game_path(game)
           %td
             = game.description
           - if user_signed_in?
