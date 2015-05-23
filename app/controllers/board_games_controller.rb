@@ -1,5 +1,6 @@
 class BoardGamesController < ApplicationController
   expose(:board_game)
+  expose(:reviews, ancestor: :board_game)
 
   def add_to_collection
     bg = BoardGame.find(params[:id])
