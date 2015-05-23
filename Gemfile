@@ -9,6 +9,8 @@ gem 'jquery-rails'
 gem 'bootstrap-generators', '~> 3.3.1'
 gem 'haml-rails'
 
+gem 'high_voltage', '~> 2.3.0'
+
 group :development, :test do
   gem 'pry-byebug'
   gem 'web-console', '~> 2.0'
