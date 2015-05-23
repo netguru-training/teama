@@ -10,6 +10,7 @@ gem 'bootstrap-generators', '~> 3.3.1'
 gem 'haml-rails'
 gem 'activeadmin', github: 'activeadmin'
 gem 'devise'
+gem 'draper'
 
 group :development, :test do
   gem 'pry-byebug'
