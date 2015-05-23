@@ -5,10 +5,9 @@ Rails.application.routes.draw do
 
   get "/pages/home" => 'pages#home', as: :home
   get '/users/profile', to: 'users#profile', as: :profile
-  resources :board_games, only: :index do
+  resources :board_games, only: [:index, :edit, :update] do
     post 'add_to_collection', on: :member
   end
   root to: 'pages#home'
-
 
 end
