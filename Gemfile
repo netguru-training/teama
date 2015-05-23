@@ -18,6 +18,7 @@ gem 'faker'
 gem 'decent_exposure'
 gem 'better_errors'
 gem "binding_of_caller"
+gem 'omniauth-facebook'
 
 group :development, :test do
   gem 'pry-byebug'
