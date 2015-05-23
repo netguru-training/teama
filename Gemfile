@@ -11,6 +11,7 @@ gem 'haml-rails'
 gem 'activeadmin', github: 'activeadmin'
 gem 'devise'
 gem 'draper'
+gem "erb2haml"
 
 group :development, :test do
   gem 'pry-byebug'
