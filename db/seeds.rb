@@ -8,3 +8,9 @@
 %w(Descent Dixit SmallWorld Discworld).each do |b|
   BoardGame.create(name: b)
 end
+
+4.times do
+  u = User.create(email: Faker::Internet::email, password: 'password')
+  u.reviews.build(content: 'Super', board_game: BoardGame.all.sample)
+  u.save
+end
