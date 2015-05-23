@@ -13,6 +13,8 @@ gem 'devise'
 gem 'draper'
 gem "erb2haml"
 
+gem 'high_voltage', '~> 2.3.0'
+
 group :development, :test do
   gem 'pry-byebug'
   gem 'web-console', '~> 2.0'
