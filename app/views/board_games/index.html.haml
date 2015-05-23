@@ -13,4 +13,6 @@
           = game.description
         - if user_signed_in?
           %td
-            = button_to
+            = button_to 'Add', assign_game_to_user_path(game)
+
+
