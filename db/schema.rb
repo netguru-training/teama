@@ -11,14 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150523084808) do
-
-  create_table "board_games", force: :cascade do |t|
-    t.string   "name"
-    t.string   "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
+ActiveRecord::Schema.define(version: 20150523092610) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -53,6 +46,34 @@ ActiveRecord::Schema.define(version: 20150523084808) do
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
 
+  create_table "board_games", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "collections", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "board_game_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "collections", ["board_game_id"], name: "index_collections_on_board_game_id"
+  add_index "collections", ["user_id"], name: "index_collections_on_user_id"
+
+  create_table "reviews", force: :cascade do |t|
+    t.string   "content"
+    t.integer  "board_game_id"
+    t.integer  "user_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "reviews", ["board_game_id"], name: "index_reviews_on_board_game_id"
+  add_index "reviews", ["user_id"], name: "index_reviews_on_user_id"
+
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -71,14 +92,4 @@ ActiveRecord::Schema.define(version: 20150523084808) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
-  create_table "reviews", force: :cascade do |t|
-    t.string   "content"
-    t.integer  "board_game_id"
-    t.integer  "user_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-  end
-
-  add_index "reviews", ["board_game_id"], name: "index_reviews_on_board_game_id"
-  add_index "reviews", ["user_id"], name: "index_reviews_on_user_id"
 end
