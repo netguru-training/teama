@@ -1,4 +1,3 @@
 class UsersController < ApplicationController
-  def profile
-  end
+  expose(:last_reviews) { current_user.reviews.last(5) }
 end
