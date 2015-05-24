@@ -20,9 +20,10 @@ gem 'better_errors'
 gem 'binding_of_caller'
 gem 'omniauth-facebook'
 gem 'decent_decoration'
-gem 'capybara'
 
 group :development, :test do
   gem 'pry-byebug'
   gem 'spring'
+  gem 'capybara'
+  gem 'rspec-rails', '~> 3.0'
 end
