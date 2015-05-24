@@ -10,4 +10,6 @@ class BoardGame < ActiveRecord::Base
   end
 
   scope :highest_rated, -> { joins(:reviews).select('board_games.id, board_games.name, avg(reviews.rating) as average_rating').group('board_games.id').order('average_rating DESC') }
+
+  validates_presence_of :name, :description
 end

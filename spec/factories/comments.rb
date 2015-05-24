@@ -1,7 +1,6 @@
 FactoryGirl.define do
-  factory :review do
+  factory :comment do
     content 'MyString'
-    rating 1.5
   end
 
 end
