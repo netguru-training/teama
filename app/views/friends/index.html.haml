@@ -1,0 +1,18 @@
+.container
+	- if current_user.friends_to_accept.present?
+		%h5 Users waiting for acceptance.
+		%ul
+			- current_user.friends_to_accept.each do |f|
+				%li
+					= f.user.email
+					= button_to 'Accept User', accept_user_path(f)
+			
+	- if current_user.users.any?
+		.row
+			.col-md-5.col-md-offset-1
+				- current_user.users.each do |f|
+					= f.email
+
+	- else	
+		%h4
+			You're ugly! You don't have any Friends!
