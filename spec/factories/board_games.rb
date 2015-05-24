@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :board_game do
-    name Faker::Lorem.sentence
-    description Faker::Lorem.paragraph
+    name 'MyString'
+    description 'MyString'
   end
 
 end
