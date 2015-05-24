@@ -78,9 +78,9 @@ ActiveRecord::Schema.define(version: 20150524082853) do
     t.string   "content"
     t.integer  "board_game_id"
     t.integer  "user_id"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
-    t.integer  "rating",        default: 1
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.float    "rating",        default: 1.0
   end
 
   add_index "reviews", ["board_game_id"], name: "index_reviews_on_board_game_id"
