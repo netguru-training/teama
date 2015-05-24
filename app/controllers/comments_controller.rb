@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create]
   expose(:comment, attributes: :comment_params)
   expose(:review)
   # expose(:board_game)

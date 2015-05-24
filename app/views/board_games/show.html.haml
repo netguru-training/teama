@@ -18,10 +18,13 @@
                 %p.small
                   by:
                   =link_to r.user.email, profile_path
-              %h5 Comments
-              %ul.list-group
-                - r.comments.each do |c|
-                  %li.list-group-item= c.content
-              = render 'comments/form', review: r
+              - if r.comments.any?
+                %h5 Comments
+                %ul.list-group
+                  - r.comments.each do |c|
+                    %li.list-group-item= c.content
+              - if user_signed_in?
+                = render 'comments/form', review: r
           - if user_signed_in?
+            %h3 Write new review
             = render 'reviews/form'
