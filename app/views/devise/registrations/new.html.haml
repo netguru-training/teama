@@ -22,11 +22,13 @@
           = f.label :password_confirmation
           %br/
           = f.password_field :password_confirmation, autocomplete: "off"
+        .actions
+          = f.submit "Sign up"
+        = render "devise/shared/links" 
       .col-md-5
         %h3
           Or sign up using:
           = link_to "Facebook", user_omniauth_authorize_path(:facebook)
 
-      .actions
-        = f.submit "Sign up"
-  = render "devise/shared/links"    
+      
+     
