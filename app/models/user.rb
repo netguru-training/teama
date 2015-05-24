@@ -10,8 +10,9 @@ class User < ActiveRecord::Base
   has_many :friends
   has_many :users, through: :friends
 
-  def friends_to_accept
-    User.joins(:friends).where('friends.accepted = ? AND users.id = ?', false, id)
+  def friends_to_accept(user)
+    Friend.where(accepted: false, user_id: user.id)
+    # Friend.find_by('friends.accepted = ? AND friend_id = ?', false, id)
   end
 
 	def self.from_omniauth(auth)

@@ -6,13 +6,13 @@ class FriendsController < ApplicationController
 	end
 
 	def create
-		friend = User.find(params[:format])
-		Friend.create(friend_id: friend, user_id: current_user.id)
+		friend = User.find(params[:user])
+		Friend.create(friend_id: friend.id, user_id: current_user.id)
 		redirect_to :back, notice: 'User added to Friends list'
 	end
 
 	def acceptance
-		friend = Friend.find_by(friend: params[:f], user: current_user)
+		friend = Friend.find_by(friend_id: params[:user], user_id: current_user.id)
 		friend.update(accepted: true)
 		redirect_to :back, notice: 'User accepted.'
 	end

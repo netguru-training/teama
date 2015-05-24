@@ -20,6 +20,7 @@ gem 'better_errors'
 gem 'binding_of_caller'
 gem 'omniauth-facebook'
 gem 'decent_decoration'
+gem 'byebug'
 
 group :development, :test do
   gem 'pry-byebug'

@@ -1,21 +1,16 @@
 .container
-	- if current_user.friends_to_accept.present?
-		%h5 Users waiting for acceptance.
-		.table
-			- current_user.friends_to_accept.each do |f|
-				%li
-					= f.email
-					= button_to 'Accept User', accept_user_path(f)
 			
 	- if current_user.users.present?
-		.row
-			.col-md-5.col-md-offset-1
-				%h5 Your Friends:
-				%table.table
-					- current_user.users.each do |f|
-						%td= f.email
-						%td= f.decorate.average_rating
+		.col-md-5.col-md-offset-1{'style' => 'padding-top: 30px'}
+			%h5{'style' => 'font-weight: bold'} Your Friends:
+			%table.table
+				- current_user.friends.where(accepted: false).each do |f|
+					%tr
+						- fr = User.find(f.friend.id)
+						%td
+							%h4= fr.email
+						%td= fr.decorate.average_rating
 
 	- else	
-		%h4
+		%h4{'style' => 'padding-top: 30px'}
 			You're ugly! You don't have any Friends!

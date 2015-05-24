@@ -1,10 +1,12 @@
 .container
-	.row
-		.col-md-5.col-md-offset-1
-			%ul
+	.row{'style' => 'padding-top: 30px'}
+		.col-md-7.col-md-offset-1
+			%table.table.table-hover
 				- User.all.each do |u|	
 					- next if u == current_user
-					%li
-						= u.email
-						\&nbsp;
-						= button_to 'Add User to Friends', friends_path(u), method: :post
+					%tr
+						%td
+							%h4
+								= u.email
+						%td.text-right
+							= button_to 'Add User to Friends', friends_path(user: u), method: :post

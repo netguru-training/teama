@@ -18,8 +18,8 @@ end
 end
 
 user = User.first
-Friend.create(user: user, friend: User.last)
+Friend.create(user_id: user.id, friend_id: User.last.id)
 
 user = User.last
-Friend.create(user: user, friend: User.first)
+Friend.create(user_id: user, friend_id: User.first.id)
 
