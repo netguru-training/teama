@@ -11,11 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20150524081828) do
-=======
 ActiveRecord::Schema.define(version: 20150524082853) do
->>>>>>> 2eaf728efeba60c8f868f770e364dd3b603c08e5
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -80,10 +76,10 @@ ActiveRecord::Schema.define(version: 20150524082853) do
 
   create_table "friends", force: :cascade do |t|
     t.integer  "friend_id"
-    t.boolean  "accepted"
+    t.boolean  "accepted",   default: false
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   add_index "friends", ["friend_id"], name: "index_friends_on_friend_id"

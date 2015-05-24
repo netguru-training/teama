@@ -16,3 +16,9 @@ end
   u.save
 end
 
+user = User.first
+Friend.create(user: user, friend: User.last)
+
+user = User.last
+Friend.create(user: user, friend: User.first)
+
