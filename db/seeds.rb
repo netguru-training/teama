@@ -11,8 +11,9 @@ end
 
 4.times do
   u = User.create(email: Faker::Internet::email, password: 'password')
-  u.reviews.build(content: 'Super', board_game: BoardGame.all.sample)
+  u.reviews.build(content: Faker::Lorem.sentence, board_game: BoardGame.all.sample)
   u.comments.build(content: Faker::Lorem.sentence, review: Review.all.sample)
+  u.friends.build(friend_id: User.all.sample, accepted: true)
   u.save
 end
 
