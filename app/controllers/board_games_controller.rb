@@ -1,4 +1,5 @@
 class BoardGamesController < ApplicationController
+  before_action :authenticate_user!, only: [:add_to_collection]
   expose(:board_game, attributes: :board_game_params)
   expose_decorated(:board_games)
   expose(:reviews, ancestor: :board_game)

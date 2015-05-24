@@ -12,7 +12,8 @@ class ReviewsController < ApplicationController
     if review.save
       redirect_to board_game_path(board_game)
     else
-      render :new
+      flash[:error] = review.errors.full_messages[0]
+      redirect_to board_game_path(board_game)
     end
   end
 

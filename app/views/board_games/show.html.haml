@@ -17,7 +17,7 @@
                 %p= r.content
                 %p.small
                   by:
-                  =link_to r.user.email, profile_path
+                  = r.user.email
               - if r.comments.any?
                 %h5 Comments
                 %ul.list-group
