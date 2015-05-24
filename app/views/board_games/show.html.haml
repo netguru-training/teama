@@ -1,10 +1,24 @@
-.page-header
-  %h1= board_game.name
-%ul
-  - reviews.each do |r|
-    %li= r.content
-    %ul
-      - r.comments.each do |c|
-        %li= c.content
-    = render 'comments/form', review: r
-  = render 'reviews/form'
+.container
+  .row
+    .col-sm-12.col-md-10.col-md-offset-1
+      .page-header
+        %h1= board_game.name
+      .row
+        .col-sm-12.col-md-6
+          %p= board_game.average_rating
+          %p= board_game.description
+        .col-sm-12.col-md-6
+          %ul.list-group
+            - reviews.each do |r|
+              %li.list-group-item
+                %span.badge= r.rating
+                %p= r.content
+                %p.small
+                  by:
+                  =link_to r.user.email, profile_path
+              %h5 Comments
+              %ul.list-group
+                - r.comments.each do |c|
+                  %li.list-group-item= c.content
+              = render 'comments/form', review: r
+            = render 'reviews/form'
