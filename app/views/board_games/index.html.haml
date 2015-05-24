@@ -15,4 +15,4 @@
           %td
             = game.description
           - if user_signed_in?
-            %td= game.add_link
+            %td= game.add_link(game, current_user)
