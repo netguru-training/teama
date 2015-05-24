@@ -7,7 +7,8 @@
       %ul.list-group
         - best_games.each do |g|
           %li
-            %h4= g.name
+            %h4
+              =link_to g.name, board_game_path(g)
     .col-md-5
       %h3 Amounts:
       %ul.list-group
