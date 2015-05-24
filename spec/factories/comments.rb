@@ -1,7 +1,6 @@
 FactoryGirl.define do
-  factory :review do
+  factory :comment do
     content Faker::Lorem.sentence
-    rating 1.5
   end
 
 end
