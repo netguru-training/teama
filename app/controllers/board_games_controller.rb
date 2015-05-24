@@ -1,6 +1,6 @@
 class BoardGamesController < ApplicationController
   expose(:board_game, attributes: :board_game_params)
-  expose(:board_games)
+  expose_decorated(:board_games)
   expose(:reviews, ancestor: :board_game)
   expose(:review) { Review.new }
   expose(:comment) { Comment.new }

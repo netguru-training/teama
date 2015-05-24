@@ -17,8 +17,9 @@ gem 'high_voltage', '~> 2.3.0'
 gem 'faker'
 gem 'decent_exposure'
 gem 'better_errors'
-gem "binding_of_caller"
+gem 'binding_of_caller'
 gem 'omniauth-facebook'
+gem 'decent_decoration'
 
 group :development, :test do
   gem 'pry-byebug'
