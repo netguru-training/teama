@@ -24,4 +24,6 @@ gem 'decent_decoration'
 group :development, :test do
   gem 'pry-byebug'
   gem 'spring'
+  gem 'capybara'
+  gem 'rspec-rails', '~> 3.0'
 end
