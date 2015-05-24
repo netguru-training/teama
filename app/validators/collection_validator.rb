@@ -1,7 +1,7 @@
 class CollectionValidator < ActiveModel::Validator
   def validate(record)
-    ids = record.user.collections.map(&:id)
-    if ids.includes?(record.id)
+    ids = record.user.collections.map(&:board_game_id)
+    if ids.includes?(record.board_game_id)
       record.errors[:base] << 'You already added this game.'
       return false
     end
