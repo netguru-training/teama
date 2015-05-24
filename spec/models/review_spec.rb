@@ -13,5 +13,6 @@ describe Review do
     it 'validates rating range' do
       expect(review.errors.full_messages).to eq(["Rating must be greater than or equal to 1"])
     end
+    it { should validate_presence_of(:content) }
   end
 end
