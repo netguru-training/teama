@@ -1,10 +1,10 @@
 .container
-  %h1 BoardGames
   .row
+    %h1 Board games list
     %table.table.table-responsive.table-hover
       %tr
         %th Name
-        %th Description
+        %th Average rating
         - if user_signed_in?
           %th Add Game
 
@@ -13,6 +13,6 @@
           %td
             =link_to game.name, board_game_path(game)
           %td
-            = game.description
+            = game.average_rating
           - if user_signed_in?
             %td= game.add_link(game, current_user)
