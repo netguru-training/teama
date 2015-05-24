@@ -1,7 +1,7 @@
 .container
 	- if current_user.friends_to_accept.present?
 		%h5 Users waiting for acceptance.
-		%ul
+		.table
 			- current_user.friends_to_accept.each do |f|
 				%li
 					= f.email
@@ -11,8 +11,10 @@
 		.row
 			.col-md-5.col-md-offset-1
 				%h5 Your Friends:
-				- current_user.users.each do |f|
-					= f.email
+				%table.table
+					- current_user.users.each do |f|
+						%td= f.email
+						%td= f.decorate.average_rating
 
 	- else	
 		%h4
