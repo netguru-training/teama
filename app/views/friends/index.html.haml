@@ -4,12 +4,13 @@
 		%ul
 			- current_user.friends_to_accept.each do |f|
 				%li
-					= f.user.email
+					= f.email
 					= button_to 'Accept User', accept_user_path(f)
 			
-	- if current_user.users.any?
+	- if current_user.users.present?
 		.row
 			.col-md-5.col-md-offset-1
+				%h5 Your Friends:
 				- current_user.users.each do |f|
 					= f.email
 

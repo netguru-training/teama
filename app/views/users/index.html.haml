@@ -3,6 +3,7 @@
 		.col-md-5.col-md-offset-1
 			%ul
 				- User.all.each do |u|	
+					- next if u == current_user
 					%li
 						= u.email
 						\&nbsp;

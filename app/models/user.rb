@@ -10,8 +10,6 @@ class User < ActiveRecord::Base
   has_many :friends
   has_many :users, through: :friends
 
-  #scope :friends_to_accept, -> (u) { joins(:friends).where('friends.accepted = ? AND users.id = ?', false, u.id) }
-
   def friends_to_accept
     User.joins(:friends).where('friends.accepted = ? AND users.id = ?', false, id)
   end
