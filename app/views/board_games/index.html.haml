@@ -15,4 +15,4 @@
           %td
             = game.description
           - if user_signed_in?
-            %td= button_to 'Add', board_game_collections_path(game), method: :post
+            %td= game.add_link
