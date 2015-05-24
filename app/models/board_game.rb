@@ -8,4 +8,6 @@ class BoardGame < ActiveRecord::Base
   def average_rating
     self.reviews.average(:rating).to_f
   end
+
+  scope :highest_rated, -> { joins(:reviews).select('board_games.id, avg(reviews.rating) as average_rating').group('board_games.id').order('average_rating DESC') }
 end
