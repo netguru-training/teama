@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create]
   expose(:review, attributes: :review_params)
   expose(:board_game)
 

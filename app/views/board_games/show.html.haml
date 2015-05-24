@@ -23,4 +23,5 @@
                 - r.comments.each do |c|
                   %li.list-group-item= c.content
               = render 'comments/form', review: r
+          - if user_signed_in?
             = render 'reviews/form'
