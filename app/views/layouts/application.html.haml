@@ -27,23 +27,25 @@
           = link_to "Project name", root_path, :class => "navbar-brand"
         #navbar.collapse.navbar-collapse
           %ul.nav.navbar-nav
-            %li.active
+            %li{:class => (page(root_path))}
               = link_to 'Home', root_path
-            %li
-              %a{:href => "#about"} About
-            %li
-              %a{:href => "#contact"} Contact
-            %li= link_to 'All games', board_games_path
+            %li{:class => (page(board_games_path))}
+              = link_to 'All games', board_games_path
             - if user_signed_in?
-              %li= link_to 'All Users', user_index_path
-              %li= link_to 'Friends', friends_path
+              %li{:class => (page(user_index_path))}
+                = link_to 'All Users', user_index_path
+              %li{:class => (page(friends_path))}
+                = link_to 'Friends', friends_path
           %ul.nav.navbar-nav.navbar-right
             - if user_signed_in?
-              %li= link_to "Hello, " + current_user.email, profile_path
+              %li{:class => (page(profile_path))}
+                = link_to "Hello, " + current_user.email, profile_path
               %li= link_to 'Logout', destroy_user_session_path, method: :delete
             - else
-              %li= link_to 'Register', new_user_registration_path
-              %li= link_to 'Login', new_user_session_path
+              %li{:class => (page(new_user_registration_path))}
+                = link_to 'Register', new_user_registration_path
+              %li{:class => (page(new_user_session_path))}
+                = link_to 'Login', new_user_session_path
 
     .container
       - flash.each do |name, msg|
