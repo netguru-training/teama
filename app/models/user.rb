@@ -7,6 +7,14 @@ class User < ActiveRecord::Base
   has_many :reviews
   has_many :board_games, through: :collections
   has_many :comments
+  has_many :friends
+  has_many :users, through: :friends
+
+  #scope :friends_to_accept, -> (u) { joins(:friends).where('friends.accepted = ? AND users.id = ?', false, u.id) }
+
+  def friends_to_accept
+    User.joins(:friends).where('friends.accepted = ? AND users.id = ?', false, id)
+  end
 
 	def self.from_omniauth(auth)
 	  	where(provider: auth.provider, uid: auth.uid).first_or_create do |user|

@@ -1,0 +1,9 @@
+.container
+	.row
+		.col-md-5.col-md-offset-1
+			%ul
+				- User.all.each do |u|	
+					%li
+						= u.email
+						\&nbsp;
+						= button_to 'Add User to Friends', friends_path(u), method: :post
